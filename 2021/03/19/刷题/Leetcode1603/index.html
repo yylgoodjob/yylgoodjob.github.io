@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于我玩《我的世界》体会, yylgoodjob博客">
+    <meta name="keywords" content="Leetcode1603, yylgoodjob博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于我玩《我的世界》体会 | yylgoodjob博客</title>
+    <title>Leetcode1603 | yylgoodjob博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于我玩《我的世界》体会</h1>
+                    <h1 class="description center-align post-title">Leetcode1603</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Gamelife/">
-                                <span class="chip bg-color">Gamelife</span>
+                            <a href="/tags/%E5%88%B7%E9%A2%98/">
+                                <span class="chip bg-color">刷题</span>
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-15
+                    2021-03-19
                 </div>
                 
 
@@ -468,16 +468,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>这是博主玩游戏的一些体会和经历，在这里希望能分享给各位。</p>
-</blockquote>
-<p>​        在说之前先将一段博主和这个游戏的经历吧。其实我早就接触过这个游戏，当时是我的一个死党给我推荐的游戏，就和他一起玩，记得是手机上玩的，操作啥的就不说了，很难受。我相信很多《我的世界》的萌新都是很害怕晚上的吧，每次一到晚上，都会“下三上一”来挂机的。是的，我也经历过这样的，当时不知道怎么玩，就和朋友挖土块，然后建造房子，或者弄一块“鬼斧神工”的地形出来，那时玩得乐此不疲，后来高中没时间玩也就停止《我的世界》的脚步了。</p>
-<p>​        来到大学后，忙着打联盟，后来忙着做游戏，直到大三了，才有个舍友提起来，说完就干，我们一个宿舍在网易上边开了个服务器一起玩，这次，我才接触到《我的世界》的核心–红石，看完b站上面的视频，觉得红石无所不能，就先搞那个四向流水刷怪机（就是普通的刷怪塔+拉杆+发射器+水桶+红石，等一会刷出怪，然后拉动拉杆，触发发射器里面的水桶，倒水将刷怪塔内的怪用水冲到下面），感觉就是“造物主”一般的存在，其实《我的世界》每一个玩家都在创造着世界，这就是《我的世界》这款游戏带给玩家的最大魅力吧。</p>
-<p>​        我的世界还有一大特色，就是有各种各样的mod，这些mod制定了各式各样的游戏世界，或是有强大的合成树，或是将别的游戏玩法引入，同时也非常感谢制作mod的原创作者和分享渠道的朋友们，让我玩到了不同的《我的世界》，一款游戏能给玩家带来这些，我认为是一款很棒的游戏了。</p>
-<p>​        </p>
-<p>关于《我的世界》的一些玩法：</p>
-<p>1.四向流水刷怪塔：</p>
-<p>​        下边柱子高度要适度，不然只能刷到装备和物品，没办法刷到经验。主要是上边，18*18的格子，最外边是一层围墙，往里边靠是水道，然后四角是发射器装水桶，在外层有拉杆控制开关。等怪刷一会，然后拉动拉杆，就会将怪冲到中间2 * 2的位置，然后就会掉下去，此时四向刷怪塔就完成了。</p>
+                <h4 id="1603-设计停车系统"><a href="#1603-设计停车系统" class="headerlink" title="1603. 设计停车系统"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/design-parking-system/">1603. 设计停车系统</a></h4><p>请你给一个停车场设计一个停车系统。停车场总共有三种不同大小的车位：大，中和小，每种尺寸分别有固定数目的车位。</p>
+<p>请你实现 ParkingSystem 类：</p>
+<p>ParkingSystem(int big, int medium, int small) 初始化 ParkingSystem 类，三个参数分别对应每种停车位的数目。<br>bool addCar(int carType) 检查是否有 carType 对应的停车位。 carType 有三种类型：大，中，小，分别用数字 1， 2 和 3 表示。一辆车只能停在  carType 对应尺寸的停车位中。如果没有空车位，请返回 false ，否则将该车停入车位并返回 true 。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ParkingSystem</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> m_big;</span><br><span class="line">    <span class="keyword">int</span> m_medium;</span><br><span class="line">    <span class="keyword">int</span> m_small;</span><br><span class="line">    ParkingSystem(<span class="keyword">int</span> big, <span class="keyword">int</span> medium, <span class="keyword">int</span> small) &#123;</span><br><span class="line">        m_big = big;</span><br><span class="line">        m_medium = medium;</span><br><span class="line">        m_small = small;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">addCar</span><span class="params">(<span class="keyword">int</span> carType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span>(carType) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span>(m_big) &#123;</span><br><span class="line">                m_big--;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">if</span>(m_medium) &#123;</span><br><span class="line">                m_medium--;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">if</span>(m_small) &#123;</span><br><span class="line">                m_small--;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your ParkingSystem object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * ParkingSystem* obj = new ParkingSystem(big, medium, small);</span></span><br><span class="line"><span class="comment"> * bool param_1 = obj-&gt;addCar(carType);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
 
                 
             </div>
@@ -504,7 +499,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/15/%E6%88%91%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%86%E7%A8%8B/%E5%85%B3%E4%BA%8E%E6%88%91%E7%8E%A9%E3%80%8A%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E4%BD%93%E4%BC%9A/">http://example.com/2021/03/15/%E6%88%91%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%86%E7%A8%8B/%E5%85%B3%E4%BA%8E%E6%88%91%E7%8E%A9%E3%80%8A%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E4%BD%93%E4%BC%9A/</a>
+                    <a href="http://example.com/2021/03/19/%E5%88%B7%E9%A2%98/Leetcode1603/">http://example.com/2021/03/19/%E5%88%B7%E9%A2%98/Leetcode1603/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -542,8 +537,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Gamelife/">
-                                    <span class="chip bg-color">Gamelife</span>
+                                <a href="/tags/%E5%88%B7%E9%A2%98/">
+                                    <span class="chip bg-color">刷题</span>
                                 </a>
                             
                         </div>
@@ -717,13 +712,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/03/19/%E5%88%B7%E9%A2%98/Leetcode1603/">
+                <a href="/2021/03/21/%E5%88%B7%E9%A2%98/Leetcode73/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Leetcode1603">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Leetcode73">
                         
-                        <span class="card-title">Leetcode1603</span>
+                        <span class="card-title">Leetcode73</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -734,7 +729,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
                         </span>
                         <span class="publish-author">
                             
@@ -762,13 +757,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/15/%E6%88%91%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%86%E7%A8%8B/%E9%A3%9E%E6%9C%BA%E5%A4%A7%E6%88%98/">
+                <a href="/2021/03/15/%E6%88%91%E7%9A%84%E6%B8%B8%E6%88%8F%E5%8E%86%E7%A8%8B/%E5%85%B3%E4%BA%8E%E6%88%91%E7%8E%A9%E3%80%8A%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C%E3%80%8B%E4%BD%93%E4%BC%9A/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="飞机大战">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="关于我玩《我的世界》体会">
                         
-                        <span class="card-title">飞机大战</span>
+                        <span class="card-title">关于我玩《我的世界》体会</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -792,8 +787,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Game/">
-                        <span class="chip bg-color">Game</span>
+                    <a href="/tags/Gamelife/">
+                        <span class="chip bg-color">Gamelife</span>
                     </a>
                     
                 </div>
