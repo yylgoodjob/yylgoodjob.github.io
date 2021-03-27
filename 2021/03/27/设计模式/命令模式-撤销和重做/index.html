@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="命令模式, yylgoodjob博客">
+    <meta name="keywords" content="命令模式-撤销和重做, yylgoodjob博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>命令模式 | yylgoodjob博客</title>
+    <title>命令模式-撤销和重做 | yylgoodjob博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">命令模式</h1>
+                    <h1 class="description center-align post-title">命令模式-撤销和重做</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Design-mode/">
-                                <span class="chip bg-color">Design mode</span>
+                            <a href="/tags/%E5%88%B7%E9%A2%98/">
+                                <span class="chip bg-color">刷题</span>
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-26
+                    2021-03-27
                 </div>
                 
 
@@ -469,29 +469,25 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><code>将一个请求封装成一个对象，从而允许你使用不同的请求，队列或日志将客户端参数化，同时支持请求操作的撤销与恢复。</code></p>
-<p>命令就是一个对象化（实例化）的调用</p>
-<p>意为将某个概念转换为一块数据（data），一个对象，或者可以认为是传入函数的变量。所以命令模式是一个“对象化的方法调用”——封装在一个对象中的一个方法调用。</p>
-<p>命令就是面向对象化的回调（callback）。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Command</span> &#123;</span><span class="comment">//命令类(可触发游戏命令)</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">virtual</span> ~Command() &#123;&#125;;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//游戏动作类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JumpCommand</span> :</span> <span class="keyword">public</span> Command &#123;<span class="comment">//跳跃命令类</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span> </span>&#123; jump(); &#125;;<span class="comment">//调用jump方法</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FireCommand</span> :</span> <span class="keyword">public</span> Command &#123;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span> </span>&#123; fireGun(); &#125;;<span class="comment">//调用fireGun方法</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">InputHandler</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">handleInput</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//需要手动释放空间</span></span><br><span class="line">	~InputHandler() &#123;</span><br><span class="line">		<span class="keyword">if</span> (buttonX_) &#123;</span><br><span class="line">			<span class="keyword">delete</span> buttonX_;</span><br><span class="line">			buttonX_ = <span class="literal">NULL</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (buttonY_) &#123;</span><br><span class="line">			<span class="keyword">delete</span> buttonY_;</span><br><span class="line">			buttonY_ = <span class="literal">NULL</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (buttonA_) &#123;</span><br><span class="line">			<span class="keyword">delete</span> buttonA_;</span><br><span class="line">			buttonA_ = <span class="literal">NULL</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (buttonB_) &#123;</span><br><span class="line">			<span class="keyword">delete</span> buttonB_;</span><br><span class="line">			buttonB_ = <span class="literal">NULL</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Command* buttonX_;</span><br><span class="line">	Command* buttonY_;</span><br><span class="line">	Command* buttonA_;</span><br><span class="line">	Command* buttonB_;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用指针处理(间接调用)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InputHandler::handleInput</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (isPressed(bUTTON_X)) &#123; buttonX_-&gt;todo; &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (isPressed(BUTTON_Y)) &#123; buttonY_-&gt;todo; &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (isPressed(BUTTON_A)) &#123; buttonA_-&gt;todo; &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (isPressed(BUTTON_B)) &#123; buttonB_-&gt;todo; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在一些策略游戏中，经常会见到一些撤销的操作，在游戏中可以重做一些不满意的地方。</p>
+<p>首先例子提供一个角色行动的类：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MoveUnitCommand</span> :</span> <span class="keyword">public</span> Command &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	MoveUnitCommand(Unit* unit, <span class="keyword">int</span> x, <span class="keyword">int</span> y) </span><br><span class="line">		unit_(unit),</span><br><span class="line">		x_(x),</span><br><span class="line">		y_(y),</span><br><span class="line">        &#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		unit-&gt;moveTo(x_, y_);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Unit* unit_;</span><br><span class="line">	<span class="keyword">int</span> x_;</span><br><span class="line">	<span class="keyword">int</span> y_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>如上代码：</p>
-<p>按钮与游戏行为之间的映射关系，如何之间进行游戏行为方法的调用，程序的灵活性就大大的降低了，这种对耦合性的假象限制了这些命令的使用范围。JumpCommand类只能作用于玩家对象。我们需要放宽限制，传去一个我们想要控制的对象，而不是让命令自身来确定所控制的对象：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Command</span> &#123;</span><span class="comment">//命令类(可触发游戏命令)</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">virtual</span> ~Command() &#123;&#125;;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">(GameActor &amp; actor)</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://yylgoodjob.github.io/2021/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">https://yylgoodjob.github.io/2021/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</a> </p>
+<p>这里和我们上一篇博客（如上）的命令不太相同，上一篇博客中，我们应该将角色和命令解耦，在这里，我们希望将命令和移动的单位绑定到一起。</p>
+<p>这里的命令更加具体，它们表示一些可在特定时间点完成的事情。这意味着每次玩家选择一个动作，输入处理程序代码都会创建一个命令示例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Command* <span class="title">handleInput</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Unit* unit = getSelectedUnit();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (isPressed(BUTTON_UP)) &#123;</span><br><span class="line">		<span class="keyword">int</span> destY = unit-&gt;y() - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> MoveUnitCommand(unit, unit-&gt;x(), destY);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (isPressed(BuUTTON_DOWN)) &#123;</span><br><span class="line">		<span class="keyword">int</span> destY = unit-&gt;y() + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> MoveUnitCommand(unit, unit-&gt;x(), destY);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这里GameActor是我们游戏世界中的“游戏对象”类。我们将它传入todo()方法中，以便命令的子类可以针对我们选择的角色进行调用：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//游戏动作类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">JumpCommand</span> :</span> <span class="keyword">public</span> Command &#123;<span class="comment">//跳跃命令类</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">(GameActor &amp; actor)</span> </span>&#123; actor.jump(); &#125;;<span class="comment">//调用jump方法</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FireCommand</span> :</span> <span class="keyword">public</span> Command &#123;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">(GameActor &amp; actor)</span> </span>&#123; actor.fireGun(); &#125;;<span class="comment">//调用fireGun方法</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>一次性命令的特性很快能为我们所用。为了使命令能够变得可撤销，我们定义了一个操作，每个命令类都需要来实现它：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Command</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">virtual</span> ~Command() &#123;&#125;;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">undo</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>这样，我们就可以使用这个类让游戏中的任何角色触发相应的游戏行为。但是在输入处理和接收命令并针对指定对象进行调用的命令之间，还少一些东西：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用指针处理(间接调用)</span></span><br><span class="line"><span class="function">Command* <span class="title">InputHandler::handleInput</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (isPressed(button_X)) &#123; <span class="keyword">return</span> buttonX_; &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (isPressed(BUTTON_Y)) &#123; <span class="keyword">return</span> buttonY_; &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (isPressed(BUTTON_A)) &#123; <span class="keyword">return</span> buttonA_; &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (isPressed(BUTTON_B)) &#123; <span class="keyword">return</span> buttonB_; &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//不做任何事情</span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>undo()方法会反转由对应的todo()方法改变的游戏状态，下面我们针对上一个移动的命令加入撤销支持：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MoveUnitCommand</span> :</span> <span class="keyword">public</span> Command &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	MoveUnitCommand(Unit* unit, <span class="keyword">int</span> x, <span class="keyword">int</span> y) :</span><br><span class="line">		unit_(unit),</span><br><span class="line">		x_(x),</span><br><span class="line">		y_(y),</span><br><span class="line">		xBefore_(<span class="number">0</span>),</span><br><span class="line">		yBefore_(<span class="number">0</span>),</span><br><span class="line"></span><br><span class="line">		&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		xBefore_ = unit_-&gt;x();</span><br><span class="line">		yBefore_ = unit_-&gt;y();</span><br><span class="line">		unit_-&gt;moveTo(x_, y_);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">undo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		unit_-&gt;moveTo(xBefore_, yBefore_);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Unit* unit_;</span><br><span class="line">	<span class="keyword">int</span> x_;</span><br><span class="line">	<span class="keyword">int</span> y_;</span><br><span class="line">	<span class="keyword">int</span> xBefore_;</span><br><span class="line">	<span class="keyword">int</span> yBefore_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>它不能立即执行命令，因为它并不知道该传入哪个角色对象。这里我们所利用的是命令即具体化的函数调用至一点，我们可将命令的调用延迟到handleInput被调用之时。然后我们需要一些代码来接收命令并让象征着玩家的角色执行命令：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Command* command = InputHandler.handleInput();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (command) &#123;</span><br><span class="line">	command-&gt;todo(antor);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>antor是对玩家角色的一个引用，上面的代码将会基于用户的输入来驱动角色，于是我们赋予了角色与前例一致的行为，而命令和角色之间加入的间接层使得我们可以让玩家控制游戏中的任何角色，只需通过改变命令执行传入的角色对象即可。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输入（玩家或者人工智能） ------&gt;[==========输入流==========]----------&gt;游戏角色</span></span><br></pre></td></tr></table></figure>
-
-<p>将控制角色的命令作为头等对象，我们便解除了函数直接调用这样的高度耦合。把它们想象成一个队列或者命令流。[如果我们将这些命令序列化，我们便可以通过网络把玩家的输入，通过网络发送到另一太电脑上，然后进行回放，这是多人网络游戏重要的一部分]</p>
-<p>撤销与重做【下期更新】</p>
+<p>我们在类中添加了一些状态，当单位移动时，它会忘记它刚才在哪里。如果我们要撤销移动，就必须记录单位的上一次位置。</p>
+<p>为了让玩家能够撤销一次移动，我们保留了他们执行的上一个命令。当他们敲击CTRL + Z时，我们调用该命令的undo()方法。</p>
+<p>如果想要支持多次撤销，我们就不需要保存最后一个命令，而是我们要维护一个命令列表，和一个对当前命令的引用，当玩家执行了命令，我们将这个命令添加到列表中，并由特定的指针指向它。</p>
+<p>当玩家选择撤销时，我们撤销当前的命令并且将当前的指针移动回去，当他们选择重做时，我们将指针前移然后执行它所指向的命令。如果他们在撤销之后选择了一个新的命令，那么列表中位于当前命令之后的所有命令都会被弃掉。</p>
 
                 
             </div>
@@ -518,7 +514,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">http://example.com/2021/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</a>
+                    <a href="http://example.com/2021/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E6%92%A4%E9%94%80%E5%92%8C%E9%87%8D%E5%81%9A/">http://example.com/2021/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E6%92%A4%E9%94%80%E5%92%8C%E9%87%8D%E5%81%9A/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -556,8 +552,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Design-mode/">
-                                    <span class="chip bg-color">Design mode</span>
+                                <a href="/tags/%E5%88%B7%E9%A2%98/">
+                                    <span class="chip bg-color">刷题</span>
                                 </a>
                             
                         </div>
@@ -727,9 +723,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2021/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E6%92%A4%E9%94%80%E5%92%8C%E9%87%8D%E5%81%9A/">
                     <div class="card-image">
@@ -747,9 +744,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -758,6 +755,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -776,13 +774,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/26/%E5%88%B7%E9%A2%98/Leetcode706/">
+                <a href="/2021/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Leetcode706">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="命令模式">
                         
-                        <span class="card-title">Leetcode706</span>
+                        <span class="card-title">命令模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -806,8 +804,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%88%B7%E9%A2%98/">
-                        <span class="chip bg-color">刷题</span>
+                    <a href="/tags/Design-mode/">
+                        <span class="chip bg-color">Design mode</span>
                     </a>
                     
                 </div>
