@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="OpenGL学习的那些事, yylgoodjob博客">
+    <meta name="keywords" content="Leetcode81, yylgoodjob博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>OpenGL学习的那些事 | yylgoodjob博客</title>
+    <title>Leetcode81 | yylgoodjob博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">OpenGL学习的那些事</h1>
+                    <h1 class="description center-align post-title">Leetcode81</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/OpenGL/">
-                                <span class="chip bg-color">OpenGL</span>
+                            <a href="/tags/%E5%88%B7%E9%A2%98/">
+                                <span class="chip bg-color">刷题</span>
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-04-06
+                    2021-04-07
                 </div>
                 
 
@@ -468,44 +468,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>本栏是博主自学OpenGL的一些博客笔记，用来排坑和在屏幕前的你一同学习！加油！</p>
-</blockquote>
-<p>OpenGL环境配置（OpenGL3.3）</p>
-<p>这里博主就不细说了，网上也是大同小异，博主推荐官方的说法 <a target="_blank" rel="noopener" href="https://learnopengl-cn.github.io/">https://learnopengl-cn.github.io/</a> </p>
-<p>OpenGL的头文件</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GLEW_STATIC</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GL/glew.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;GLFW/glfw3.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>我们在创建main函数后，在这个函数中我们将实例化GLFW窗口：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	glfwInit();</span><br><span class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, <span class="number">3</span>);</span><br><span class="line">	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, <span class="number">3</span>);</span><br><span class="line">	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);</span><br><span class="line">	<span class="comment">//如果使用的是Mac OS X系统的话，需要加上这行代码</span></span><br><span class="line">	<span class="comment">//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>接下来我们创建一个窗口对象，这个窗口对象放了所有和窗口相关的数据，而且会被GLFW的其他函数频繁地用到。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//glfwCreateWindow函数需要窗口的宽和高作为它的前两个参数。第三个参数表示这个窗口的名称（标题），这里我们使用“MyOpenGL”。该函数返回一个GLFWwindow对象</span></span><br><span class="line">GLFWwindow* window = glfwCreateWindow(<span class="number">800</span>, <span class="number">600</span>, <span class="string">&quot;MyOpenGL&quot;</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br><span class="line"><span class="keyword">if</span>(window == <span class="literal">NULL</span>) &#123;<span class="comment">//创建窗口失败</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Failed to Create Window&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line">glfwMakeContextCurrent(window);</span><br></pre></td></tr></table></figure>
-
-<p>接下来我们要确保这个窗口是否创建成功了，所以我们需要对其进行判断</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Init GLEW</span></span><br><span class="line">glewExperimental = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">if</span>(glewInit() != GLEW_OK) &#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;init GLEW failed.&quot;</span>);</span><br><span class="line">	glfwTerminate();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我们在渲染之前还需要做一件事情，我们必须告诉OpenGL渲染窗口的尺寸大小（Viewport），这样OpenGL才只能知道怎样根据窗口大小显示数据和坐标。我们可以通过调用glViewport函数来设置窗口的维度(Dimension):</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//glViewport函数前两个参数控制窗口左下角的位置，第三个和第四个参数控制渲染窗口的宽度和高度（像素）</span></span><br><span class="line">glViewport(<span class="number">0</span>, <span class="number">0</span>, <span class="number">800</span>, <span class="number">600</span>);</span><br></pre></td></tr></table></figure>
-
-<p>当用户改变窗口的大小的时候，视也应该被调整。我们可以对窗口注册一个回调函数（Callback Function），它会在每次窗口大小被调整的时候被调用。这个回调函数的原型：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">framebuffer_size_callback</span><span class="params">(GLFWwindow* window, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</span><br><span class="line">    glViewport(<span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我们还需要注册这个函数，告诉GLFW希望每当窗口调整大小的时候调用这个函数：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//函数注册</span></span><br><span class="line">glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);</span><br></pre></td></tr></table></figure>
-
-<p>我们希望程序在我们主动关闭它之前不断绘制图像并能够接收用户输入。因此，我们需要在程序中添加一个while循环，我们可以把它称之为渲染循环（render Loop），它能在我们让GLFW退出前一致保持运行：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判定窗口是否被关闭</span></span><br><span class="line">	<span class="comment">//glfwWindowShouldClose函数在我们每次循环的开始前检查一次GLFW是否被要求退出，如果是的话该函数返回true，返回渲染循环结束</span></span><br><span class="line">	<span class="comment">//glfwPollEvents函数检查有没有触发事件（键盘输入，鼠标移动等），更新窗口状态，并调用对应的回调函数（可以通过回调方法手动设置）</span></span><br><span class="line">	<span class="comment">//glfwSwapBuffers函数会交换颜色缓冲（它是一个储存这GLFW窗口每一个像素颜色值的大缓冲），它在这一迭代中被用来绘制，并且将作为输出显示在屏幕上</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (!glfwWindowShouldClose(window)) &#123;</span><br><span class="line">		glfwSwapBuffers(window);</span><br><span class="line">		glfwPollEvents();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里原文中提到了一个双缓冲（Double Buffer）</p>
-<p>引用程序使用单缓冲绘图时可能会存在图像闪烁的问题。这是因为生成图像不是一下子被绘制出来的，而是按照从左到右，由上而下逐像素地绘制而成的。最终图像不是在瞬间显示给用户，而是通过一步步生成的，这回导致渲染结果很不真实。为了规避这些问题，我们应用双缓冲渲染窗口应用程序。前缓冲保存着最终输出的图像，它会在屏幕上显示；而所有的渲染指令都会在后缓冲上绘制。当所有的渲染指令执行完毕后，我们交换前缓冲和后缓冲，这样图像就立即呈现出来，之前提到的不真实感就消除了。</p>
-<p>当渲染循环结束后，我们需要正确的释放/删除之前分配的所有资源。我们可以在main函数的最后调用glfwTerminate函数来完成</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//释放/删除分配的资源</span></span><br><span class="line">glfwTerminate();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-
-<p>我们希望能够在GLFW中实现一些输入控制，这可以通过使用GLFW的几个输入函数来完成。使用GLFW的glfwGetKey函数，它需要一个窗口以及一个按键作为输入。这个函数将会返回这个按键是否被按下。我们将创建一个processInput函数来让所有的输入代码保持整洁。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">processInput</span><span class="params">(GLFWwindow* window)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//检测用户是否按下返回键（Esc）(如果没有按下，glfwGetKey将会返回GLFW_RELEASE)，如果用户确定按下了返回键，我们将通过glfwSetwindowShouldClose使用把WindowShouldClose属性设置为true的方法关闭GLFW。下次while循环的条件检测就会失败，程序将会关闭.</span></span><br><span class="line">	<span class="keyword">if</span> (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) &#123;</span><br><span class="line">		glfwSetWindowShouldClose(window, <span class="literal">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (!glfwWindowShouldClose(window)) &#123;</span><br><span class="line">    	<span class="comment">//输入</span></span><br><span class="line">		processInput(window);</span><br><span class="line">    	<span class="comment">//检查调用事件，交换缓冲</span></span><br><span class="line">		glfwSwapBuffers(window);</span><br><span class="line">		glfwPollEvents();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+                <h4 id="81-搜索旋转排序数组-II"><a href="#81-搜索旋转排序数组-II" class="headerlink" title="81. 搜索旋转排序数组 II"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/">81. 搜索旋转排序数组 II</a></h4><p>已知存在一个按非降序排列的整数数组 nums ，数组中的值不必互不相同。</p>
+<p>在传递给函数之前，nums 在预先未知的某个下标 k（0 &lt;= k &lt; nums.length）上进行了 旋转 ，使数组变为 [nums[k], nums[k+1], …, nums[n-1], nums[0], nums[1], …, nums[k-1]]（下标 从 0 开始 计数）。例如， [0,1,2,4,4,4,5,6,6,7] 在下标 5 处经旋转后可能变为 [4,5,6,6,7,0,1,2,4,4] 。</p>
+<p>给你 旋转后 的数组 nums 和一个整数 target ，请你编写一个函数来判断给定的目标值是否存在于数组中。如果 nums 中存在这个目标值 target ，则返回 true ，否则返回 false 。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">find</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; iNum, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l &gt; r) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(target == iNum[mid]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target &lt; iNum[mid]) &#123;</span><br><span class="line">            <span class="keyword">return</span> find(iNum, l, mid - <span class="number">1</span>, target);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> find(iNum, mid + <span class="number">1</span>, r, target);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">search</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">return</span> find(nums, <span class="number">0</span>, nums.size() - <span class="number">1</span>, target);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
                 
@@ -533,7 +499,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/04/06/OpenGL/OpenGL%E5%AD%A6%E4%B9%A0%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E4%B9%8B%E5%88%9B%E5%BB%BA%E7%AA%97%E5%8F%A3/">http://example.com/2021/04/06/OpenGL/OpenGL%E5%AD%A6%E4%B9%A0%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E4%B9%8B%E5%88%9B%E5%BB%BA%E7%AA%97%E5%8F%A3/</a>
+                    <a href="http://example.com/2021/04/07/%E5%88%B7%E9%A2%98/Leetcode81/">http://example.com/2021/04/07/%E5%88%B7%E9%A2%98/Leetcode81/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -571,8 +537,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/OpenGL/">
-                                    <span class="chip bg-color">OpenGL</span>
+                                <a href="/tags/%E5%88%B7%E9%A2%98/">
+                                    <span class="chip bg-color">刷题</span>
                                 </a>
                             
                         </div>
@@ -746,13 +712,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/04/07/%E5%88%B7%E9%A2%98/Leetcode81/">
+                <a href="/2021/04/08/Leetcode153/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Leetcode81">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Leetcode153">
                         
-                        <span class="card-title">Leetcode81</span>
+                        <span class="card-title">Leetcode153</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -763,7 +729,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
                         </span>
                         <span class="publish-author">
                             
@@ -791,13 +757,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/06/%E5%88%B7%E9%A2%98/Leetcode80/">
+                <a href="/2021/04/06/OpenGL/OpenGL%E5%AD%A6%E4%B9%A0%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E4%B9%8B%E5%88%9B%E5%BB%BA%E7%AA%97%E5%8F%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Leetcode80">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="OpenGL学习的那些事">
                         
-                        <span class="card-title">Leetcode80</span>
+                        <span class="card-title">OpenGL学习的那些事</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -821,8 +787,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%88%B7%E9%A2%98/">
-                        <span class="chip bg-color">刷题</span>
+                    <a href="/tags/OpenGL/">
+                        <span class="chip bg-color">OpenGL</span>
                     </a>
                     
                 </div>
