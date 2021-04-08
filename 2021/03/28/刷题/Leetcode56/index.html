@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="命令模式-撤销和重做, yylgoodjob博客">
+    <meta name="keywords" content="Leetcode56, yylgoodjob博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>命令模式-撤销和重做 | yylgoodjob博客</title>
+    <title>Leetcode56 | yylgoodjob博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">命令模式-撤销和重做</h1>
+                    <h1 class="description center-align post-title">Leetcode56</h1>
                 </div>
             </div>
         </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-27
+                    2021-03-28
                 </div>
                 
 
@@ -468,26 +468,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><code>将一个请求封装成一个对象，从而允许你使用不同的请求，队列或日志将客户端参数化，同时支持请求操作的撤销与恢复。</code></p>
-<p>在一些策略游戏中，经常会见到一些撤销的操作，在游戏中可以重做一些不满意的地方。</p>
-<p>首先例子提供一个角色行动的类：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MoveUnitCommand</span> :</span> <span class="keyword">public</span> Command &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	MoveUnitCommand(Unit* unit, <span class="keyword">int</span> x, <span class="keyword">int</span> y) </span><br><span class="line">		unit_(unit),</span><br><span class="line">		x_(x),</span><br><span class="line">		y_(y),</span><br><span class="line">        &#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		unit-&gt;moveTo(x_, y_);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Unit* unit_;</span><br><span class="line">	<span class="keyword">int</span> x_;</span><br><span class="line">	<span class="keyword">int</span> y_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+                <h4 id="56-合并区间"><a href="#56-合并区间" class="headerlink" title="56. 合并区间"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/merge-intervals/">56. 合并区间</a></h4><p>以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; a, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[<span class="number">0</span>] &lt; b[<span class="number">0</span>]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(a[<span class="number">0</span>] &gt; b[<span class="number">0</span>])&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[<span class="number">1</span>] &lt; b[<span class="number">1</span>]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; merge(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; intervals) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; iNum;</span><br><span class="line">        <span class="keyword">if</span>(intervals.size() == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> iNum;</span><br><span class="line">        sort(intervals.begin(), intervals.end(), cmp);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; c = intervals[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; intervals.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(c[<span class="number">1</span>] &lt; intervals[i + <span class="number">1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                iNum.push_back(c);</span><br><span class="line">                c = intervals[i + <span class="number">1</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                c[<span class="number">1</span>] = max(c[<span class="number">1</span>], intervals[i + <span class="number">1</span>][<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(iNum.size() == <span class="number">0</span>) &#123;</span><br><span class="line">            iNum.push_back(c);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(iNum[iNum.size() - <span class="number">1</span>][<span class="number">1</span>] &lt; c[<span class="number">0</span>]) &#123;</span><br><span class="line">                iNum.push_back(c);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                iNum[iNum.size() - <span class="number">1</span>][<span class="number">1</span>] = max(iNum[iNum.size() - <span class="number">1</span>][<span class="number">1</span>], c[<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> iNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://yylgoodjob.github.io/2021/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">https://yylgoodjob.github.io/2021/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</a> </p>
-<p>这里和我们上一篇博客（如上）的命令不太相同，上一篇博客中，我们应该将角色和命令解耦，在这里，我们希望将命令和移动的单位绑定到一起。</p>
-<p>这里的命令更加具体，它们表示一些可在特定时间点完成的事情。这意味着每次玩家选择一个动作，输入处理程序代码都会创建一个命令示例：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Command* <span class="title">handleInput</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Unit* unit = getSelectedUnit();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (isPressed(BUTTON_UP)) &#123;</span><br><span class="line">		<span class="keyword">int</span> destY = unit-&gt;y() - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> MoveUnitCommand(unit, unit-&gt;x(), destY);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (isPressed(BuUTTON_DOWN)) &#123;</span><br><span class="line">		<span class="keyword">int</span> destY = unit-&gt;y() + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> MoveUnitCommand(unit, unit-&gt;x(), destY);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>一次性命令的特性很快能为我们所用。为了使命令能够变得可撤销，我们定义了一个操作，每个命令类都需要来实现它：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Command</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">virtual</span> ~Command() &#123;&#125;;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">undo</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>undo()方法会反转由对应的todo()方法改变的游戏状态，下面我们针对上一个移动的命令加入撤销支持：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MoveUnitCommand</span> :</span> <span class="keyword">public</span> Command &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	MoveUnitCommand(Unit* unit, <span class="keyword">int</span> x, <span class="keyword">int</span> y) :</span><br><span class="line">		unit_(unit),</span><br><span class="line">		x_(x),</span><br><span class="line">		y_(y),</span><br><span class="line">		xBefore_(<span class="number">0</span>),</span><br><span class="line">		yBefore_(<span class="number">0</span>),</span><br><span class="line"></span><br><span class="line">		&#123;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">todo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		xBefore_ = unit_-&gt;x();</span><br><span class="line">		yBefore_ = unit_-&gt;y();</span><br><span class="line">		unit_-&gt;moveTo(x_, y_);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">undo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		unit_-&gt;moveTo(xBefore_, yBefore_);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Unit* unit_;</span><br><span class="line">	<span class="keyword">int</span> x_;</span><br><span class="line">	<span class="keyword">int</span> y_;</span><br><span class="line">	<span class="keyword">int</span> xBefore_;</span><br><span class="line">	<span class="keyword">int</span> yBefore_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>我们在类中添加了一些状态，当单位移动时，它会忘记它刚才在哪里。如果我们要撤销移动，就必须记录单位的上一次位置。</p>
-<p>为了让玩家能够撤销一次移动，我们保留了他们执行的上一个命令。当他们敲击CTRL + Z时，我们调用该命令的undo()方法。</p>
-<p>如果想要支持多次撤销，我们就不需要保存最后一个命令，而是我们要维护一个命令列表，和一个对当前命令的引用，当玩家执行了命令，我们将这个命令添加到列表中，并由特定的指针指向它。</p>
-<p>当玩家选择撤销时，我们撤销当前的命令并且将当前的指针移动回去，当他们选择重做时，我们将指针前移然后执行它所指向的命令。如果他们在撤销之后选择了一个新的命令，那么列表中位于当前命令之后的所有命令都会被弃掉。</p>
 
                 
             </div>
@@ -514,7 +497,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E6%92%A4%E9%94%80%E5%92%8C%E9%87%8D%E5%81%9A/">http://example.com/2021/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E6%92%A4%E9%94%80%E5%92%8C%E9%87%8D%E5%81%9A/</a>
+                    <a href="http://example.com/2021/03/28/%E5%88%B7%E9%A2%98/Leetcode56/">http://example.com/2021/03/28/%E5%88%B7%E9%A2%98/Leetcode56/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -727,13 +710,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/03/28/%E5%88%B7%E9%A2%98/Leetcode56/">
+                <a href="/2021/03/30/%E5%88%B7%E9%A2%98/Leetcode74/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Leetcode56">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Leetcode74">
                         
-                        <span class="card-title">Leetcode56</span>
+                        <span class="card-title">Leetcode74</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -744,7 +727,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-30
                         </span>
                         <span class="publish-author">
                             
@@ -772,13 +755,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">
+                <a href="/2021/03/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F-%E6%92%A4%E9%94%80%E5%92%8C%E9%87%8D%E5%81%9A/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="命令模式">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="命令模式-撤销和重做">
                         
-                        <span class="card-title">命令模式</span>
+                        <span class="card-title">命令模式-撤销和重做</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -789,7 +772,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-27
                             </span>
                         <span class="publish-author">
                             
@@ -802,8 +785,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Design-mode/">
-                        <span class="chip bg-color">Design mode</span>
+                    <a href="/tags/%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">刷题</span>
                     </a>
                     
                 </div>
