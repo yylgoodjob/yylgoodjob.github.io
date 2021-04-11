@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Leetcode824, yylgoodjob博客">
+    <meta name="keywords" content="OpenGL学习那些事之三角形, yylgoodjob博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Leetcode824 | yylgoodjob博客</title>
+    <title>OpenGL学习那些事之三角形 | yylgoodjob博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Leetcode824</h1>
+                    <h1 class="description center-align post-title">OpenGL学习那些事之三角形</h1>
                 </div>
             </div>
         </div>
@@ -431,8 +431,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%88%B7%E9%A2%98/">
-                                <span class="chip bg-color">刷题</span>
+                            <a href="/tags/OpenGL/">
+                                <span class="chip bg-color">OpenGL</span>
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-04-08
+                    2021-04-09
                 </div>
                 
 
@@ -468,14 +468,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="824-山羊拉丁文"><a href="#824-山羊拉丁文" class="headerlink" title="824. 山羊拉丁文"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/goat-latin/">824. 山羊拉丁文</a></h4><p>给定一个由空格分割单词的句子 S。每个单词只包含大写或小写字母。</p>
-<p>我们要将句子转换为 “Goat Latin”（一种类似于 猪拉丁文 - Pig Latin 的虚构语言）。</p>
-<p>山羊拉丁文的规则如下：</p>
-<p>如果单词以元音开头（a, e, i, o, u），在单词后添加”ma”。<br>例如，单词”apple”变为”applema”。</p>
-<p>如果单词以辅音字母开头（即非元音字母），移除第一个字符并将它放到末尾，之后再添加”ma”。<br>例如，单词”goat”变为”oatgma”。</p>
-<p>根据单词在句子中的索引，在单词最后添加与索引相同数量的字母’a’，索引从1开始。<br>例如，在第一个单词后添加”a”，在第二个单词后添加”aa”，以此类推。<br>返回将 S 转换为山羊拉丁文后的句子。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">botStr</span><span class="params">(<span class="built_in">string</span> str, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(str[<span class="number">0</span>] == <span class="string">&#x27;a&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;e&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;i&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;o&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;u&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;A&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;E&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;I&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;O&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;U&#x27;</span>) &#123;</span><br><span class="line">            str += <span class="string">&quot;m&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br><span class="line">                str += <span class="string">&quot;a&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">string</span> s = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; str.size()) &#123;</span><br><span class="line">                s += str[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            s += str[<span class="number">0</span>];</span><br><span class="line">            s += <span class="string">&quot;m&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                s += <span class="string">&quot;a&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">toGoatLatin</span><span class="params">(<span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; iNum;</span><br><span class="line">        S += <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="built_in">string</span> str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; S.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(S[i] == <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(str != <span class="string">&quot;&quot;</span>)</span><br><span class="line">                iNum.push_back(str);</span><br><span class="line">                str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                str += S[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; iNum.size(); i++) &#123;</span><br><span class="line">            iNum[i] = botStr(iNum[i], i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">string</span> s = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; iNum.size(); i++) &#123;</span><br><span class="line">            s += iNum[i];</span><br><span class="line">            <span class="keyword">if</span>(i != iNum.size() - <span class="number">1</span>) &#123;</span><br><span class="line">                s += <span class="string">&quot; &quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+                <blockquote>
+<p>本栏是博主自学OpenGL的一些博客笔记，用来排坑和在屏幕前的你一同学习！加油！</p>
+</blockquote>
+<p>由于OpenGL中的物体是再3D空间中的，而屏幕和窗口是2D像素数组，所以OpenGL就是要把3D的物体转变为适应屏幕2D像素的，3D坐标转为2D坐标的处理过程是有OpenGL的图形渲染管线（指的是一堆原始图形数据途径一个输送管道，期间经过各种变化处理最终出现再屏幕的过程）管理的。</p>
+<p>图形渲染管线可以被划分为两个主要部分：第一个部分是把3D坐标转换为2D坐标，第二个部分是把2D坐标转变为实际的有色像素。</p>
+<p>2D坐标和像素也是不同的，2D坐标精确表示一个点在2D空间中的位置，而2D像素是这个点的近似值，2D像素受到屏幕/窗口分辨率的限制。</p>
+<p>图形渲染管线接收一组3D坐标，然后把它们转变为屏幕上的有色2D像素，图形渲染管线可以被划分为几个阶段，每个阶段将会把前一个阶段的输出作为输入。所有这些阶段都高度专门化的，并且很容易并行执行。正是由于他们具有并行执行的特性，当今大多数显卡都有成千上万的小处理核心，它们在GPU上为每一个（渲染管线）阶段运行各自的小程序，从而在图形渲染管线中快速处理数据，这些小程序叫做着色器（Shader）。</p>
+<p>有些着色器允许开发者自己配置，这就允许我们用自己写的着色器来替换默认的。这样我们就可以更细致地控制图形渲染管线中的特定部分，而因为它们运行在GPU上，所以它们可以给我们节约宝贵的CPU时间。OpenGL着色器是用OpenGL着色器语言（GLSL）写成的。</p>
+<p>图形渲染管线包含很多部分，每个部分都将在转换顶点数据到最终像素这一过程中处理各自特定的阶段。</p>
+<p>首先，我们以数组的形式传递3个3D坐标作为图形渲染管线的输入，用来表示一个三角形，这个数组叫做顶点数据，顶点数据是一系列顶点的集合。一个顶点是一个3D坐标的数据集合。而顶点数据是用顶点属性表示的，它们可以包含任何想用的数据。</p>
+<p>图形渲染管线的第一个部分是顶点着色器（Vertex Shader），它把一个单独的顶点作为输入。顶点着色器主要的目的是把3D坐标转为另一种3D坐标，同时顶点着色器允许我们对顶点属性进行一些基本的处理。</p>
+<p>图元装配（Primitive Assembly）阶段将顶点着色器输出的所有顶点作为输入，并所有的点装配成指定图元的形状。</p>
+<p>图元装配阶段的输出会传递给几何着色器（Geometry Shader）。几何着色器把图元形式的一系列顶点的集合作为输入，它可以通过产生新顶点构造出新的图元来生成其他形状。</p>
+<p>几何着色器的输出会被传入光栅化阶段（Rasterization Stage），这里它会把图元映射为最终屏幕上相应的像素，生成供片段着色器（Fragment Shader）使用的片段。在片段着色器运行之前会执行裁切。裁切会丢弃超出视图以外的所有像素，用来提升执行效率。</p>
+<p><strong>OpenGL中的一个片段是OpenGL渲染一个像素所需的所有数据</strong></p>
+<p>片段着色器的主要目的是计算一个像素的最终颜色，这也是所有OpenGL高级效果产生的地方。通常，片段着色器包含3D场景的数据（比如光照，阴影，光的颜色等等），这些数据可以被用来计算最终像素的颜色。</p>
+<p>在所有对应颜色值确定以后，最终的对象将会被传到最后一个阶段，我们叫做Alpha测试和混合（Blending）阶段。这个阶段检测片段的对应的深度（和模板）值，用它们来判断这个像素是其它物体的前面还是后面，决定是否应该丢弃。这个阶段也会检查alpha值（lapha值定义了一个物体的透明度）并对物体进行混合。所以，即使在片段着色器中计算出来一个像素输入的颜色，在渲染多个三角形的时候最后的像素颜色也可能完全不同。</p>
+<p>图形渲染管线非常复杂，它包含很多可配置的部分。然而，对于大多数场合，我们只需要配置顶点和片段着色器就行了。几何着色器是可选的，通常使用它默认的着色器就行了。</p>
+<p>在现代OpenGL中，我们必须定义至少一个顶点着色器和一个片段着色器（因为GPU中没有默认的顶点、片段着色器）。</p>
+<p>（博主的理解：图形渲染管线就是给某一个区域着色的，我们需要给着色器传入渲染位置的3D坐标，然后转化成窗口中的2D坐标，然后裁剪之后对其进行着色。）</p>
+<p><strong>顶点输入</strong></p>
+<p>开始绘制图形之前，我们必须先给OpenGL输入一些顶点数据。OpenGL是一个3D图形库，所以我们在OpenGL中指定的所有坐标都是3D坐标（x, y, z）OpenGL不是简单地把所有的3D坐标变换为屏幕上的2D像素；OpenGL仅当3D坐标在3个轴(x, y, z)上都为-1.0到1.0的范围内时才处理它。所有在所谓的标准化设备坐标范围内的坐标才会最终呈现在屏幕上。</p>
+<p>由于我们希望渲染一个三角形，我们一共要指定三个顶点，每个顶点都有一个3D位置。我们会将它们以标准化设备坐标的形式（OpenGL的可见区域）定义为一个float数组。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> vertices[] = &#123;</span><br><span class="line">	<span class="number">-0.5f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,</span><br><span class="line">	<span class="number">0.5f</span>, <span class="number">-0.5f</span>, <span class="number">0.0f</span>,</span><br><span class="line">	<span class="number">0.0f</span>, <span class="number">0.5f</span>, <span class="number">0.0f</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>由于OpenGL是在3D空间工作的，而我们渲染的是一个2D三角形，我们将它顶点的z坐标设置为0.0。这样子的话三角形每一点的深度都是一样的，从而使它看上去像是2D的。（下期更新）</p>
 
                 
             </div>
@@ -502,7 +520,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/04/08/%E5%88%B7%E9%A2%98/Leetcode824/">http://example.com/2021/04/08/%E5%88%B7%E9%A2%98/Leetcode824/</a>
+                    <a href="http://example.com/2021/04/09/OpenGL/OpenGL%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E4%B9%8B%E4%B8%89%E8%A7%92%E5%BD%A2/">http://example.com/2021/04/09/OpenGL/OpenGL%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E4%B9%8B%E4%B8%89%E8%A7%92%E5%BD%A2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -540,8 +558,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%88%B7%E9%A2%98/">
-                                    <span class="chip bg-color">刷题</span>
+                                <a href="/tags/OpenGL/">
+                                    <span class="chip bg-color">OpenGL</span>
                                 </a>
                             
                         </div>
@@ -715,13 +733,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/04/09/OpenGL/OpenGL%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E4%B9%8B%E4%B8%89%E8%A7%92%E5%BD%A2/">
+                <a href="/2021/04/10/%E5%88%B7%E9%A2%98/Leetcode263/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="OpenGL学习那些事之三角形">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Leetcode263">
                         
-                        <span class="card-title">OpenGL学习那些事之三角形</span>
+                        <span class="card-title">Leetcode263</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -732,7 +750,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-10
                         </span>
                         <span class="publish-author">
                             
@@ -745,8 +763,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/OpenGL/">
-                        <span class="chip bg-color">OpenGL</span>
+                    <a href="/tags/%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">刷题</span>
                     </a>
                     
                 </div>
@@ -760,13 +778,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/08/%E5%88%B7%E9%A2%98/Leetcode153/">
+                <a href="/2021/04/08/%E5%88%B7%E9%A2%98/Leetcode824/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Leetcode153">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Leetcode824">
                         
-                        <span class="card-title">Leetcode153</span>
+                        <span class="card-title">Leetcode824</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

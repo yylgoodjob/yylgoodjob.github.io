@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Leetcode824, yylgoodjob博客">
+    <meta name="keywords" content="Leetcode263, yylgoodjob博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Leetcode824 | yylgoodjob博客</title>
+    <title>Leetcode263 | yylgoodjob博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Leetcode824</h1>
+                    <h1 class="description center-align post-title">Leetcode263</h1>
                 </div>
             </div>
         </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-04-08
+                    2021-04-10
                 </div>
                 
 
@@ -468,13 +468,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="824-山羊拉丁文"><a href="#824-山羊拉丁文" class="headerlink" title="824. 山羊拉丁文"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/goat-latin/">824. 山羊拉丁文</a></h4><p>给定一个由空格分割单词的句子 S。每个单词只包含大写或小写字母。</p>
-<p>我们要将句子转换为 “Goat Latin”（一种类似于 猪拉丁文 - Pig Latin 的虚构语言）。</p>
-<p>山羊拉丁文的规则如下：</p>
-<p>如果单词以元音开头（a, e, i, o, u），在单词后添加”ma”。<br>例如，单词”apple”变为”applema”。</p>
-<p>如果单词以辅音字母开头（即非元音字母），移除第一个字符并将它放到末尾，之后再添加”ma”。<br>例如，单词”goat”变为”oatgma”。</p>
-<p>根据单词在句子中的索引，在单词最后添加与索引相同数量的字母’a’，索引从1开始。<br>例如，在第一个单词后添加”a”，在第二个单词后添加”aa”，以此类推。<br>返回将 S 转换为山羊拉丁文后的句子。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">botStr</span><span class="params">(<span class="built_in">string</span> str, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(str[<span class="number">0</span>] == <span class="string">&#x27;a&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;e&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;i&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;o&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;u&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;A&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;E&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;I&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;O&#x27;</span> || str[<span class="number">0</span>] == <span class="string">&#x27;U&#x27;</span>) &#123;</span><br><span class="line">            str += <span class="string">&quot;m&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br><span class="line">                str += <span class="string">&quot;a&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">string</span> s = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; str.size()) &#123;</span><br><span class="line">                s += str[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            s += str[<span class="number">0</span>];</span><br><span class="line">            s += <span class="string">&quot;m&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n; j++) &#123;</span><br><span class="line">                s += <span class="string">&quot;a&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">toGoatLatin</span><span class="params">(<span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; iNum;</span><br><span class="line">        S += <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="built_in">string</span> str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; S.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(S[i] == <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(str != <span class="string">&quot;&quot;</span>)</span><br><span class="line">                iNum.push_back(str);</span><br><span class="line">                str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                str += S[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; iNum.size(); i++) &#123;</span><br><span class="line">            iNum[i] = botStr(iNum[i], i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">string</span> s = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; iNum.size(); i++) &#123;</span><br><span class="line">            s += iNum[i];</span><br><span class="line">            <span class="keyword">if</span>(i != iNum.size() - <span class="number">1</span>) &#123;</span><br><span class="line">                s += <span class="string">&quot; &quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+                <h4 id="263-丑数"><a href="#263-丑数" class="headerlink" title="263. 丑数"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/ugly-number/">263. 丑数</a></h4><p>给你一个整数 n ，请你判断 n 是否为 丑数 。如果是，返回 true ；否则，返回 false 。</p>
+<p>丑数 就是只包含质因数 2、3 和/或 5 的正整数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isUgly</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> isUgly(n / <span class="number">2</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(n % <span class="number">3</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> isUgly(n / <span class="number">3</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(n % <span class="number">5</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> isUgly(n / <span class="number">5</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
                 
@@ -502,7 +498,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/04/08/%E5%88%B7%E9%A2%98/Leetcode824/">http://example.com/2021/04/08/%E5%88%B7%E9%A2%98/Leetcode824/</a>
+                    <a href="http://example.com/2021/04/10/%E5%88%B7%E9%A2%98/Leetcode263/">http://example.com/2021/04/10/%E5%88%B7%E9%A2%98/Leetcode263/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -711,9 +707,56 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/04/10/%E5%88%B7%E9%A2%98/Leetcode263/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Leetcode263">
+                        
+                        <span class="card-title">Leetcode263</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            yyl
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">刷题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/04/09/OpenGL/OpenGL%E5%AD%A6%E4%B9%A0%E9%82%A3%E4%BA%9B%E4%BA%8B%E4%B9%8B%E4%B8%89%E8%A7%92%E5%BD%A2/">
                     <div class="card-image">
@@ -731,9 +774,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -747,51 +790,6 @@
                     
                     <a href="/tags/OpenGL/">
                         <span class="chip bg-color">OpenGL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/04/08/%E5%88%B7%E9%A2%98/Leetcode153/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Leetcode153">
-                        
-                        <span class="card-title">Leetcode153</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            yyl
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%88%B7%E9%A2%98/">
-                        <span class="chip bg-color">刷题</span>
                     </a>
                     
                 </div>
