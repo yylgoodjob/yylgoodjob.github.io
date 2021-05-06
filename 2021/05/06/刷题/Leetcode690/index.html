@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Leetcode1720, yylgoodjob博客">
+    <meta name="keywords" content="Leetcode690, yylgoodjob博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Leetcode1720 | yylgoodjob博客</title>
+    <title>Leetcode690 | yylgoodjob博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Leetcode1720</h1>
+                    <h1 class="description center-align post-title">Leetcode690</h1>
                 </div>
             </div>
         </div>
@@ -468,11 +468,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1720-解码异或后的数组"><a href="#1720-解码异或后的数组" class="headerlink" title="1720. 解码异或后的数组"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/decode-xored-array/">1720. 解码异或后的数组</a></h4><p>未知 整数数组 arr 由 n 个非负整数组成。</p>
-<p>经编码后变为长度为 n - 1 的另一个整数数组 encoded ，其中 encoded[i] = arr[i] XOR arr[i + 1] 。例如，arr = [1,0,2,1] 经编码后得到 encoded = [1,2,3] 。</p>
-<p>给你编码后的数组 encoded 和原数组 arr 的第一个元素 first（arr[0]）。</p>
-<p>请解码返回原数组 arr 。可以证明答案存在并且是唯一的。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setStr</span><span class="params">(<span class="built_in">string</span>&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size() / <span class="number">2</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = s[i];</span><br><span class="line">            s[i] = s[s.size() - i - <span class="number">1</span>];</span><br><span class="line">            s[s.size() - i - <span class="number">1</span>] = c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">setiNum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> str1 = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="built_in">string</span> str2 = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="built_in">string</span> s = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">while</span>(a) &#123;</span><br><span class="line">            str1 += (a % <span class="number">2</span>) + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            a /= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(b) &#123;</span><br><span class="line">            str2 += (b % <span class="number">2</span>) + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            b /= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        setStr(str1);</span><br><span class="line">        setStr(str2);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> len = max(str1.size(), str2.size()) - min(str1.size(), str2.size());</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(str1.size() &lt; str2.size()) &#123;</span><br><span class="line">                str1 = <span class="string">&quot;0&quot;</span> + str1;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                str2 = <span class="string">&quot;0&quot;</span> + str2;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str1.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(str1[i] != str2[i]) &#123;</span><br><span class="line">                s += <span class="string">&quot;1&quot;</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                s += <span class="string">&quot;0&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> dm = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = s.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            sum += dm * (s[i] - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            dm *= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">decode</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; encoded, <span class="keyword">int</span> first)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; iNum;</span><br><span class="line">        iNum.push_back(first);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; encoded.size(); i++) &#123;</span><br><span class="line">            first = setiNum(first, encoded[i]);</span><br><span class="line">            iNum.push_back(first);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> iNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+                <h4 id="690-员工的重要性"><a href="#690-员工的重要性" class="headerlink" title="690. 员工的重要性"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/employee-importance/">690. 员工的重要性</a></h4><p>给定一个保存员工信息的数据结构，它包含了员工 唯一的 id ，重要度 和 直系下属的 id 。</p>
+<p>比如，员工 1 是员工 2 的领导，员工 2 是员工 3 的领导。他们相应的重要度为 15 , 10 , 5 。那么员工 1 的数据结构是 [1, 15, [2]] ，员工 2的 数据结构是 [2, 10, [3]] ，员工 3 的数据结构是 [3, 5, []] 。注意虽然员工 3 也是员工 1 的一个下属，但是由于 并不是直系 下属，因此没有体现在员工 1 的数据结构中。</p>
+<p>现在输入一个公司的所有员工信息，以及单个员工 id ，返回这个员工和他所有下属的重要度之和。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for Employee.</span></span><br><span class="line"><span class="comment">class Employee &#123;</span></span><br><span class="line"><span class="comment">public:</span></span><br><span class="line"><span class="comment">    int id;</span></span><br><span class="line"><span class="comment">    int importance;</span></span><br><span class="line"><span class="comment">    vector&lt;int&gt; subordinates;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">bool</span> Id[<span class="number">2005</span>] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">map</span>&lt;<span class="keyword">int</span>, Employee*&gt; mp, <span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        Id[id] = <span class="literal">false</span>;</span><br><span class="line">        sum += (*mp[id]).importance;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (*mp[id]).subordinates.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(Id[(*mp[id]).subordinates[i]]) &#123;</span><br><span class="line">                dfs(mp, (*mp[id]).subordinates[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getImportance</span><span class="params">(<span class="built_in">vector</span>&lt;Employee*&gt; employees, <span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, Employee*&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; employees.size(); i++) &#123;</span><br><span class="line">            Id[(*employees[i]).id] = <span class="literal">true</span>;</span><br><span class="line">            mp[(*employees[i]).id] = employees[i];</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(mp, id);</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
                 
@@ -500,7 +499,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/05/06/%E5%88%B7%E9%A2%98/Leetcode1720/">http://example.com/2021/05/06/%E5%88%B7%E9%A2%98/Leetcode1720/</a>
+                    <a href="http://example.com/2021/05/06/%E5%88%B7%E9%A2%98/Leetcode690/">http://example.com/2021/05/06/%E5%88%B7%E9%A2%98/Leetcode690/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -713,13 +712,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/05/06/%E5%88%B7%E9%A2%98/Leetcode690/">
+                <a href="/2021/05/06/%E5%88%B7%E9%A2%98/Leetcode554/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Leetcode690">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Leetcode554">
                         
-                        <span class="card-title">Leetcode690</span>
+                        <span class="card-title">Leetcode554</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -758,13 +757,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/05/%E5%88%B7%E9%A2%98/Leetcode740/">
+                <a href="/2021/05/06/%E5%88%B7%E9%A2%98/Leetcode1720/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Leetcode740">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Leetcode1720">
                         
-                        <span class="card-title">Leetcode740</span>
+                        <span class="card-title">Leetcode1720</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -775,7 +774,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-06
                             </span>
                         <span class="publish-author">
                             
