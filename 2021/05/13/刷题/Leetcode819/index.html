@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Leetcode1310, yylgoodjob博客">
+    <meta name="keywords" content="Leetcode819, yylgoodjob博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Leetcode1310 | yylgoodjob博客</title>
+    <title>Leetcode819 | yylgoodjob博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Leetcode1310</h1>
+                    <h1 class="description center-align post-title">Leetcode819</h1>
                 </div>
             </div>
         </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-05-12
+                    2021-05-13
                 </div>
                 
 
@@ -468,10 +468,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1310-子数组异或查询"><a href="#1310-子数组异或查询" class="headerlink" title="1310. 子数组异或查询"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/xor-queries-of-a-subarray/">1310. 子数组异或查询</a></h4><p>有一个正整数数组 arr，现给你一个对应的查询数组 queries，其中 queries[i] = [Li, Ri]。</p>
-<p>对于每个查询 i，请你计算从 Li 到 Ri 的 XOR 值（即 arr[Li] xor arr[Li+1] xor … xor arr[Ri]）作为本次查询的结果。</p>
-<p>并返回一个包含给定查询 queries 所有结果的数组。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">xorQueries</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; queries)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; iNum;</span><br><span class="line">        iNum.push_back(<span class="number">0</span>);</span><br><span class="line">        iNum.push_back(arr[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; arr.size(); i++) &#123;</span><br><span class="line">            iNum.push_back(iNum[i] ^ arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; queries.size(); i++) &#123;</span><br><span class="line">            ans.push_back(iNum[queries[i][<span class="number">0</span>]] ^ iNum[queries[i][<span class="number">1</span>] + <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1, 3, 4, 8</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">1, 2, 6, 14</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">总:1^3^4^8</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">例如:求[0,1] = 1^3</span></span><br><span class="line"><span class="comment">求:[1,2] = 3^4  =&gt;  1^3^4 = 1^[1^2]</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+                <h4 id="819-最常见的单词"><a href="#819-最常见的单词" class="headerlink" title="819. 最常见的单词"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/most-common-word/">819. 最常见的单词</a></h4><p>给定一个段落 (paragraph) 和一个禁用单词列表 (banned)。返回出现次数最多，同时不在禁用列表中的单词。</p>
+<p>题目保证至少有一个词不在禁用列表中，而且答案唯一。</p>
+<p>禁用列表中的单词用小写字母表示，不含标点符号。段落中的单词不区分大小写。答案都是小写字母。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    map&lt;string, int&gt; setStr(string par) &#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line">        <span class="built_in">string</span> str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        par += <span class="string">&quot; &quot;</span>; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; par.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(par[i] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; par[i] &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">                par[i] += <span class="number">32</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(par[i] &gt;= <span class="string">&#x27;a&#x27;</span> &amp;&amp; par[i] &lt;= <span class="string">&#x27;z&#x27;</span>) &#123;</span><br><span class="line">                str += par[i];</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(str != <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">                    mp[str]++;</span><br><span class="line">                &#125;</span><br><span class="line">                str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">mostCommonWord</span><span class="params">(<span class="built_in">string</span> paragraph, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; banned)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; mp = setStr(paragraph);</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; ban;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; banned.size(); i++) &#123;</span><br><span class="line">            ban[banned[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> maxc = INT_MIN;</span><br><span class="line">        <span class="built_in">string</span> str = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;::iterator it = mp.begin(); it != mp.end(); it++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(ban.find(it-&gt;first) == ban.end() &amp;&amp; it-&gt;second &gt; maxc) &#123;</span><br><span class="line">                maxc = it-&gt;second;</span><br><span class="line">                str = it-&gt;first;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
                 
@@ -499,7 +499,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/05/12/%E5%88%B7%E9%A2%98/Leetcode1310/">http://example.com/2021/05/12/%E5%88%B7%E9%A2%98/Leetcode1310/</a>
+                    <a href="http://example.com/2021/05/13/%E5%88%B7%E9%A2%98/Leetcode819/">http://example.com/2021/05/13/%E5%88%B7%E9%A2%98/Leetcode819/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -708,17 +708,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/05/13/%E5%88%B7%E9%A2%98/Leetcode806/">
+                <a href="/2021/05/13/%E5%88%B7%E9%A2%98/Leetcode819/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Leetcode806">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Leetcode819">
                         
-                        <span class="card-title">Leetcode806</span>
+                        <span class="card-title">Leetcode819</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -728,9 +729,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -739,6 +740,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -757,13 +759,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/11/%E5%88%B7%E9%A2%98/Leetcode1734/">
+                <a href="/2021/05/13/%E5%88%B7%E9%A2%98/Leetcode806/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Leetcode1734">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Leetcode806">
                         
-                        <span class="card-title">Leetcode1734</span>
+                        <span class="card-title">Leetcode806</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -774,7 +776,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-13
                             </span>
                         <span class="publish-author">
                             
