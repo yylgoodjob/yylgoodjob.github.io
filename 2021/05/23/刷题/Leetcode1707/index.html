@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Leetcode993, yylgoodjob博客">
+    <meta name="keywords" content="Leetcode1707, yylgoodjob博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Leetcode993 | yylgoodjob博客</title>
+    <title>Leetcode1707 | yylgoodjob博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Leetcode993</h1>
+                    <h1 class="description center-align post-title">Leetcode1707</h1>
                 </div>
             </div>
         </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-05-17
+                    2021-05-23
                 </div>
                 
 
@@ -468,11 +468,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="993-二叉树的堂兄弟节点"><a href="#993-二叉树的堂兄弟节点" class="headerlink" title="993. 二叉树的堂兄弟节点"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/cousins-in-binary-tree/">993. 二叉树的堂兄弟节点</a></h4><p>在二叉树中，根节点位于深度 0 处，每个深度为 k 的节点的子节点位于深度 k+1 处。</p>
-<p>如果二叉树的两个节点深度相同，但 父节点不同 ，则它们是一对堂兄弟节点。</p>
-<p>我们给出了具有唯一值的二叉树的根节点 root ，以及树中两个不同节点的值 x 和 y 。</p>
-<p>只有与值 x 和 y 对应的节点是堂兄弟节点时，才返回 true 。否则，返回 false。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() : val(0), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfsTree</span><span class="params">(TreeNode* root, <span class="keyword">int</span> k, <span class="keyword">int</span> n, <span class="keyword">int</span> &amp;m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!root) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;left &amp;&amp; root-&gt;left-&gt;val == k) &#123;</span><br><span class="line">            m = n + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> root-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(root-&gt;right &amp;&amp; root-&gt;right-&gt;val == k) &#123;</span><br><span class="line">            m = n + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">return</span> root-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dfsTree(root-&gt;left, k, n + <span class="number">1</span>, m) + dfsTree(root-&gt;right, k, n + <span class="number">1</span>, m);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isCousins</span><span class="params">(TreeNode* root, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l, r;</span><br><span class="line">        l = r = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(dfsTree(root, x, <span class="number">0</span>, l) != dfsTree(root, y, <span class="number">0</span>, r)) &#123;</span><br><span class="line">            <span class="keyword">if</span>(l == r) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+                <h4 id="1707-与数组中元素的最大异或值"><a href="#1707-与数组中元素的最大异或值" class="headerlink" title="1707. 与数组中元素的最大异或值"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-xor-with-an-element-from-array/">1707. 与数组中元素的最大异或值</a></h4><p>给你一个由非负整数组成的数组 nums 。另有一个查询数组 queries ，其中 queries[i] = [xi, mi] 。</p>
+<p>第 i 个查询的答案是 xi 和任何 nums 数组中不超过 mi 的元素按位异或（XOR）得到的最大值。换句话说，答案是 max(nums[j] XOR xi) ，其中所有 j 均满足 nums[j] &lt;= mi 。如果 nums 中的所有元素都大于 mi，最终答案就是 -1 。</p>
+<p>返回一个整数数组 answer 作为查询的答案，其中 answer.length == queries.length 且 answer[i] 是第 i 个查询的答案。</p>
+<p>暴力(超时)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">delSame</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; iNum;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!mp[nums[i]]) &#123;</span><br><span class="line">                iNum.push_back(nums[i]);</span><br><span class="line">                mp[nums[i]] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> iNum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maximizeXor</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; queries)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; iNum = delSame(nums);</span><br><span class="line"></span><br><span class="line">        sort(iNum.begin(), iNum.end());</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; c;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; queries.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> maxc = <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; iNum.size(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(iNum[j] &gt; queries[i][<span class="number">1</span>]) <span class="keyword">break</span>;</span><br><span class="line">                maxc = max(maxc,  iNum[j] ^ queries[i][<span class="number">0</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            c.push_back(maxc);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
                 
@@ -500,7 +500,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/05/17/%E5%88%B7%E9%A2%98/Leetcode993/">http://example.com/2021/05/17/%E5%88%B7%E9%A2%98/Leetcode993/</a>
+                    <a href="http://example.com/2021/05/23/%E5%88%B7%E9%A2%98/Leetcode1707/">http://example.com/2021/05/23/%E5%88%B7%E9%A2%98/Leetcode1707/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -713,13 +713,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/05/23/%E5%88%B7%E9%A2%98/Leetcode1707/">
+                <a href="/2021/06/05/%E5%88%B7%E9%A2%98/Leetcode203/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Leetcode1707">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Leetcode203">
                         
-                        <span class="card-title">Leetcode1707</span>
+                        <span class="card-title">Leetcode203</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -730,7 +730,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-05
                         </span>
                         <span class="publish-author">
                             
@@ -758,13 +758,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/15/%E5%88%B7%E9%A2%98/Leetcode13/">
+                <a href="/2021/05/17/%E5%88%B7%E9%A2%98/Leetcode993/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Leetcode13">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Leetcode993">
                         
-                        <span class="card-title">Leetcode13</span>
+                        <span class="card-title">Leetcode993</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -775,7 +775,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-17
                             </span>
                         <span class="publish-author">
                             
